@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <nav>
+    <nav class="header__nav">
       <div class="header__left">
         <ul class="header__menu">
           <li
@@ -123,101 +123,107 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  header {
+  .header {
     position: fixed;
     z-index: 100;
     width: 100%;
     height: 156px;
     transition: all 300ms linear;
-  }
 
-  header.scroll {
-    background-color: rgba(37, 43, 66, 0.95);
-    box-shadow: 0 16px 14px -8px rgba(0, 0, 0, 0.3);
-  }
+    &.scroll {
+      background-color: rgba(37, 43, 66, 0.95);
+      box-shadow: 0 16px 14px -8px rgba(0, 0, 0, 0.3);
+    }
 
-  nav {
-    max-width: 1210px;
-    height: 100%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-  }
+    &__nav {
+      max-width: 1210px;
+      height: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+    }
 
-  .header__left, .header__socials {
-    display: flex;
-    align-items: center;
-  }
+    &__left, &__socials {
+      display: flex;
+      align-items: center;
+    }
 
-  .header__menu {
-    display: flex;
-    margin-left: 40px;
-    gap: 21px;
+    &__menu {
+      display: flex;
+      margin-left: 40px;
+      gap: 21px;
 
-    &__item a{
-      font-weight: 400;
-      font-size: 1.5rem;
-      line-height: 28px;
-      text-align: center;
-      letter-spacing: 0.2px;
-      color: #FFFFFF;
-      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      &__item a{
+        font-weight: 400;
+        font-size: 1.5rem;
+        line-height: 28px;
+        text-align: center;
+        letter-spacing: 0.2px;
+        color: #FFFFFF;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      }
+    }
+
+    &__logo {
+      width: 186px;
+      height: 58px;
+      margin-left: 25px;
+    }
+
+    &__socials {
+      height: 100%;
+      margin-right: 40px;
+      gap: 24px
     }
   }
 
-  .header__logo {
-    width: 186px;
-    height: 58px;
-    margin-left: 25px;
+  .mobile-nav, .mobile-menu {
+    display: none;
   }
-
-  .header__socials {
-    height: 100%;
-    margin-right: 40px;
-    gap: 24px
-  }
-
-  nav.mobile-nav, .mobile-menu {
-      display: none;
-    }
 
   @media (max-width: 1110px) {
-    header {
+    .header {
       height: 112px;
     }
   }
 
   @media (max-width: 820px) {
-    header {
+    .header {
       height: 112px;
-    }
-    .header__logo {
-      display: none;
-    }
 
-    .header__menu__item a {
-      font-size: 1.4rem;
-    }
+      &__logo {
+        display: none;
+      }
 
-    .header__socials__item img {
-      width: 30px;
-      height: 100%;
+      &__menu__item a {
+        font-size: 1.4rem;
+      }
+
+      &__socials__item img {
+        width: 30px;
+        height: 100%;
+      }
     }
   }
   @media (max-width: 650px) {
-    header {
+    .header {
       width: 100%;
       height: 112px;
-    }
 
-    nav {
+      &__nav {
       display: none;
     }
+    }
 
-    nav.mobile-nav {
+    .mobile-nav {
       display: flex;
       align-items: center;
+      justify-content: space-between;
       padding: 17px 16px;
+
+      &__icon {
+        cursor: pointer;
+      }
     }
 
     .mobile-menu {
@@ -231,43 +237,43 @@ export default {
       justify-content: center;
       padding-top: 100px;
       transition: all 400ms ease;
-    }
 
-    .mobile-nav__icon {
-      cursor: pointer;
-    }
-
-    .mobile-menu.active {
-      left: 0;
-    }
-
-    .close-icon {
-      width: 25px;
-      height: 25px;
-      position: fixed;
-      top: 40px;
-      right: 50px;
-      opacity: 0;
-      pointer-events: none;
-      transition: all 400ms ease;
-
-      & img {
-        width: 100%;
+      &.active {
+        left: 0;
       }
-    }
 
-    .mobile-menu.active .close-icon {
-      opacity: 1;
-      pointer-events: auto;
-      cursor: pointer;
-    }
+      &.active .close-icon {
+        opacity: 1;
+        pointer-events: auto;
+        cursor: pointer;
+      }
 
-    ul {
-      & li {
-        padding: 10px 0;
-        & a {
-          color: white;
-          font-size: 2rem;
+      & .close-icon {
+        width: 25px;
+        height: 25px;
+        position: fixed;
+        top: 40px;
+        right: 50px;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 400ms ease;
+
+        & img {
+          width: 100%;
+        }
+      }
+
+      & ul {
+        width: 100%;
+        text-align: center;
+        & li {
+          padding: 10px 0;
+          & a {
+            display: block;
+            width: 100%;
+            color: white;
+            font-size: 2rem;
+          }
         }
       }
     }
