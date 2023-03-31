@@ -7,8 +7,9 @@
             v-for="(item, index) in menuList"
             :key="index"
             class="header__menu__item"
+            @click="gotoPage(item.href)"
           >
-            <a href="/">{{ item.label }}</a>
+            <a href="javascript:voild(0)">{{ item.label }}</a>
           </li>
         </ul>
         <div class="header__logo">
@@ -39,7 +40,7 @@
     </nav>
     <div class="mobile-menu" :class="{ 'active': isMobileMenuActive }">
       <div class="close-icon" @click="toggleMobileMenu">
-        <img src="@/static/images/close-icon.png" alt="Close">
+        <img src="@/static/images/close-icon.svg" alt="Close">
       </div>
       <ul>
         <li
@@ -55,7 +56,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'PageHeader',
   data () {
@@ -64,22 +64,27 @@ export default {
       menuList: [
         {
           id: 1,
+          href: '/',
           label: 'Home'
         },
         {
           id: 2,
+          href: '/product',
           label: 'Product'
         },
         {
           id: 3,
+          href: '/pricing',
           label: 'Pricing'
         },
         {
           id: 4,
+          href: '/about',
           label: 'About'
         },
         {
           id: 5,
+          href: '/contact',
           label: 'Contact'
         }
       ],
@@ -106,6 +111,9 @@ export default {
     window.removeEventListener('scroll', this.handleHeaderScroll)
   },
   methods: {
+    gotoPage (href) {
+      this.$router.push(href)
+    },
     handleHeaderScroll () {
       const header = document.querySelector('header')
       if (window.scrollY > 60) {
@@ -153,7 +161,7 @@ export default {
       margin-left: 40px;
       gap: 21px;
 
-      &__item a{
+      &__item a {
         font-weight: 400;
         font-size: 1.5rem;
         line-height: 28px;
@@ -161,6 +169,10 @@ export default {
         letter-spacing: 0.2px;
         color: #FFFFFF;
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        &:hover {
+          color: var(--primary-color);
+        }
       }
     }
 
@@ -173,7 +185,11 @@ export default {
     &__socials {
       height: 100%;
       margin-right: 40px;
-      gap: 24px
+      gap: 24px;
+
+      &__item:hover {
+        background-color: var(--primary-color);
+      }
     }
   }
 
@@ -258,17 +274,17 @@ export default {
         pointer-events: none;
         transition: all 400ms ease;
 
-        & img {
+        img {
           width: 100%;
         }
       }
 
-      & ul {
+      ul {
         width: 100%;
         text-align: center;
-        & li {
+        li {
           padding: 10px 0;
-          & a {
+          a {
             display: block;
             width: 100%;
             color: white;
