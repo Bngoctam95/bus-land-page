@@ -1,6 +1,6 @@
 <template>
   <div class="banner">
-    <img class="banner__img" src="@/static/images/banner.svg" alt="Banner Image">
+    <img class="banner__img" src="@/static/images/banner.png" alt="Banner Image">
     <div class="banner__content">
       <h1 class="banner__title">
         The best products start with Figma
@@ -8,16 +8,20 @@
       <h2 class="banner__subtitle">
         Most calendars are designed for teams. Slate is designed for freelancers
       </h2>
-      <button class="banner__btn">
+      <base-button class="primary banner__btn">
         Try For Free
-      </button>
+      </base-button>
     </div>
   </div>
 </template>
 
 <script>
+import baseButton from '@/components/button/base-button.vue'
 export default {
-  name: 'BannerSection'
+  name: 'BannerSection',
+  components: {
+    baseButton
+  }
 }
 </script>
 
@@ -25,7 +29,6 @@ export default {
   .banner {
     position: relative;
     width: 100%;
-    height: 1042px;
 
     &__img {
       width: 100%;
@@ -33,9 +36,9 @@ export default {
 
     &__content {
       position: absolute;
-      top: 34%;
+      top: 25%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translateX(-50%);
       text-align: center;
     }
 
@@ -55,19 +58,6 @@ export default {
       letter-spacing: 0.2px;
     }
 
-    &__btn {
-      background-color: var(--primary-color);
-      color: white;
-      font-size: 2rem;
-      padding: 15px 45px;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-
-      &:hover {
-        background-color: #0a82f1;
-      }
-    }
   }
 
   /* Resonsive */
@@ -192,7 +182,7 @@ export default {
   @media (max-width: 650px) {
     .banner {
       width: 100%;
-      height: 863px;
+      height: 110vh;
 
       &__img {
         height: 100%;
@@ -222,6 +212,13 @@ export default {
       &__btn {
         font-size: 1.4rem;
         padding: 10px 25px;
+      }
+    }
+  }
+  @media (max-width: 400px) {
+    .banner {
+      &__content {
+        top: 180px;
       }
     }
   }
