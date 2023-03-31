@@ -51,7 +51,7 @@ export default {
         },
         {
           id: 2,
-          icon: 'featuresIcon3',
+          icon: 'featuresIcon2',
           label: 'Design with real data',
           content: 'Slate helps you see how many more days you need to work to reach your financial goal.'
         },
@@ -70,9 +70,8 @@ export default {
 <style lang="scss" scoped>
   .wrapper {
     width: 100%;
-    height: 1360px;
 
-    & .features {
+    .features {
       width: 1210px;
       max-width: 100%;
       margin: 0 auto;
@@ -111,13 +110,13 @@ export default {
       &__item {
         text-align: center;
 
-        & img {
+        img {
           width: 61px;
           height: 61px;
           margin-bottom: 15px;
         }
 
-        & h4 {
+        h4 {
           font-weight: 700;
           font-size: 2rem;
           line-height: 28px;
@@ -127,7 +126,7 @@ export default {
            margin-bottom: 10px;
         }
 
-        & p {
+        p {
           font-weight: 400;
           font-size: 1.8rem;
           line-height: 25px;
@@ -159,7 +158,7 @@ export default {
           background-color: var(--primary-color);
           box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 
-          & img {
+          img {
             position: absolute;
             top: 50%;
             left: 54%;
@@ -181,7 +180,7 @@ export default {
   /* Responsive */
   @media (max-width: 880px) {
     .wrapper {
-      & .features {
+      .features {
         &__list {
           flex-direction: column;
         }
@@ -200,12 +199,12 @@ export default {
 
   @media (max-width: 576px) {
     .wrapper {
-      & .features {
+      .features {
         &__title {
           margin-bottom: 50px;
           &__content {
             padding: 0 55px;
-            & span {
+            span {
               display: none;
             }
           }
@@ -245,7 +244,7 @@ export default {
             background-color: var(--primary-color);
             box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 
-            & img {
+            img {
               width: 25px;
               height:25px;
               position: absolute;
