@@ -42,12 +42,14 @@
       <div class="close-icon" @click="toggleMobileMenu">
         <img src="@/static/images/close-icon.svg" alt="Close">
       </div>
-      <ul>
+      <ul @click="toggleMobileMenu">
         <li
           v-for="(item, index) in menuList"
           :key="index"
+          class="header__menu__item"
+          @click="gotoPage(item.href)"
         >
-          <a href="/">{{ item.label }}</a>
+          <a href="javascript:voild(0)">{{ item.label }}</a>
         </li>
       </ul>
     </div>
@@ -205,24 +207,6 @@ export default {
 
   @media (max-width: 820px) {
     .header {
-      height: 112px;
-
-      &__logo {
-        display: none;
-      }
-
-      &__menu__item a {
-        font-size: 1.4rem;
-      }
-
-      &__socials__item img {
-        width: 30px;
-        height: 100%;
-      }
-    }
-  }
-  @media (max-width: 650px) {
-    .header {
       width: 100%;
       height: 112px;
 
@@ -264,7 +248,7 @@ export default {
         cursor: pointer;
       }
 
-      & .close-icon {
+      .close-icon {
         width: 25px;
         height: 25px;
         position: fixed;
