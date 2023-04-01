@@ -12,11 +12,7 @@
 export default {
   name: 'BaseButton',
   props: {
-    disabled: Boolean,
-    type: {
-      type: String,
-      default: 'button'
-    }
+    disabled: Boolean
   },
   methods: {
     handleClick () {
@@ -37,6 +33,9 @@ export default {
     &:hover {
       background-color: #dddddd;
     }
+    &:active {
+      background-color: white;
+    }
   }
 
   .primary {
@@ -44,6 +43,9 @@ export default {
     background-color: var(--primary-color);
     &:hover {
       background-color: #0a82f1;
+    }
+    &:active {
+      background-color: var(--primary-color);
     }
   }
 </style>
