@@ -1,3 +1,5 @@
+@import '~/assets/scss/fonts.css';
+
 :root {
   --primary-color: #2091F9;
 }
@@ -27,6 +29,10 @@ a {
   text-decoration: none;
 }
 
+<<<<<<< HEAD
 h1,h2,h3,h4,p {
+=======
+h1 {
+>>>>>>> main
   margin: 0;
 }
