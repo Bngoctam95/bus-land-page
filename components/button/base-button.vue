@@ -1,6 +1,6 @@
 <template>
   <button
-    :class="['button', type]"
+    :class="['button', internalType]"
     :disabled="disabled"
     @click="handleClick"
   >
@@ -12,7 +12,15 @@
 export default {
   name: 'BaseButton',
   props: {
-    disabled: Boolean
+    disabled: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: {
+    internalType () {
+      return this.type
+    }
   },
   methods: {
     handleClick () {
