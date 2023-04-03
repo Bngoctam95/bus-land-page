@@ -12,7 +12,10 @@
 export default {
   name: 'BaseButton',
   props: {
-    disabled: Boolean
+    disabled: {
+      type: Boolean,
+      default: false
+    }
   },
   computed: {
     internalType () {

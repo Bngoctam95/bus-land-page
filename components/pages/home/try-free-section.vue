@@ -71,7 +71,7 @@ export default {
   @media (max-width: 1250px) {
     .wrapper {
       .tryfree {
-       padding: 226px 50px;
+       padding: 100px 50px;
         &__content {
           h3 {
             margin-bottom: 20px;
@@ -134,7 +134,7 @@ export default {
   @media (max-width: 950px) {
     .wrapper {
       .tryfree {
-        padding: 226px 30px;
+        padding: 80px 30px;
         flex-direction: column;
         align-items: center;
 
