@@ -5,7 +5,7 @@
         <h2>Pricing</h2>
         <p>
           Most calendars are designed for teams.<br>
-          Slate is designed for freelancers
+          <span>Slate is designed for freelancers</span>
         </p>
       </div>
       <div class="pricing__order">
@@ -41,13 +41,13 @@
           <div class="feature">
             Pricing Feature
           </div>
-          <baseButton class="primary btn">
+          <baseButton class="primary btn" @click="orderNow('free')">
             Order Now
           </baseButton>
         </div>
-        <div class="pricing__order__free">
+        <div class="pricing__order__standard">
           <h2 class="title">
-            Free
+            Standard
           </h2>
           <p class="subtitle">
             Organize across <br>
@@ -55,7 +55,7 @@
           </p>
           <div class="price">
             <p class="price__number">
-              0
+              10
             </p>
             <div class="price__mth">
               <span>$</span>
@@ -77,13 +77,13 @@
           <div class="feature">
             Pricing Feature
           </div>
-          <baseButton class="primary btn">
+          <baseButton class="btn" @click="orderNow('standard')">
             Order Now
           </baseButton>
         </div>
-        <div class="pricing__order__free">
+        <div class="pricing__order__business">
           <h2 class="title">
-            Free
+            Business
           </h2>
           <p class="subtitle">
             Organize across <br>
@@ -91,7 +91,7 @@
           </p>
           <div class="price">
             <p class="price__number">
-              0
+              99
             </p>
             <div class="price__mth">
               <span>$</span>
@@ -113,7 +113,7 @@
           <div class="feature">
             Pricing Feature
           </div>
-          <baseButton class="primary btn">
+          <baseButton class="primary btn" @click="orderNow('business')">
             Order Now
           </baseButton>
         </div>
@@ -128,6 +128,16 @@ export default {
   name: 'PricingSection',
   components: {
     baseButton
+  },
+  data () {
+    return {
+      order: null
+    }
+  },
+  methods: {
+    orderNow (orderType) {
+      this.$data.order = orderType
+    }
   }
 }
 </script>
@@ -163,9 +173,11 @@ export default {
       &__order {
         display: flex;
         justify-content: space-around;
+        align-items: center;
 
-        &__free {
+        &__free, &__business {
           width: 335px;
+          height: 607px;
           padding: 40px;
           text-align: center;
           background-color: white;
@@ -239,7 +251,107 @@ export default {
           }
 
           .btn {
-            margin-top: 30px;
+            margin-top: 10px;
+          }
+        }
+
+        &__standard {
+          width: 335px;
+          height: 693px;
+          padding: 83px 40px;
+          text-align: center;
+          background-color: var(--primary-color);
+          border: 1px solid #DEDEDE;
+          box-shadow: 0px 13px 19px rgba(0, 0, 0, 0.07);
+          border-radius: 10px;
+          color: white;
+
+          .title {
+            font-family: 'Graphik-Medium';
+            font-weight: 700;
+            font-size: 2rem;
+            line-height: 28px;
+            letter-spacing: 0.1px;
+            text-transform: uppercase;
+          }
+
+          .subtitle {
+            font-weight: 400;
+            font-size: 1.6rem;
+            line-height: 23px;
+            letter-spacing: 0.1px;
+          }
+
+          .price {
+            padding: 30px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+
+            &__number {
+              font-family: 'Graphik-Medium';
+              font-weight: 700;
+              font-size: 7.4rem;
+              line-height: 84px;
+              letter-spacing: 0.2px;
+            }
+
+            &__mth {
+              text-align: left;
+              padding-top: 10px;
+              span {
+                font-family: 'Graphik-Medium';
+                font-weight: 700;
+                font-size: 2rem;
+                line-height: 28px;
+                letter-spacing: 0.1px;
+              }
+              p {
+                font-family: 'Graphik-Light';
+                font-weight: 400;
+                font-size: 1.6rem;
+                line-height: 23px;
+                letter-spacing: 0.1px;
+              }
+            }
+          }
+
+          .feature {
+            padding: 10px;
+            font-weight: 400;
+            font-size: 1.5rem;
+            line-height: 28px;
+            letter-spacing: 0.2px;
+          }
+
+          .btn {
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 1150px) {
+    .wrapper {
+      .pricing {
+        &__order {
+          flex-direction: column;
+          gap: 50px
+        }
+      }
+    }
+  }
+  @media (max-width: 650px) {
+    .wrapper {
+      .pricing {
+        &__content {
+          p {
+            span {
+              display: none;
+            }
           }
         }
       }
