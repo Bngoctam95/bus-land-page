@@ -1,10 +1,6 @@
 <template>
   <button
-<<<<<<< HEAD
-    :class="['button', internalType]"
-=======
     class="button"
->>>>>>> main
     :disabled="disabled"
     @click="handleClick"
   >
@@ -16,17 +12,9 @@
 export default {
   name: 'BaseButton',
   props: {
-<<<<<<< HEAD
-    disabled: Boolean
-  },
-  computed: {
-    internalType () {
-      return this.type
-=======
     disabled: {
       type: Boolean,
       default: false
->>>>>>> main
     }
   },
   methods: {
@@ -52,10 +40,6 @@ export default {
       background-color: white;
     }
   }
-<<<<<<< HEAD
-=======
-
->>>>>>> main
   .primary {
     color: white;
     background-color: var(--primary-color);
