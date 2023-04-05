@@ -40,7 +40,6 @@ export default {
       background-color: white;
     }
   }
-
   .primary {
     color: white;
     background-color: var(--primary-color);
