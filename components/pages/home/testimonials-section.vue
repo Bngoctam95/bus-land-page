@@ -6,7 +6,7 @@
       </h2>
       <img class="testimonials__img" src="@/static/images/ibm.png" alt="">
       <p class="testimonials__content">
-        Most calendars are designed for teams. Slate is designed for freelancers <br>
+        Most calendars are designed for teams. Slate is designed for freelancers
         who want a simple way to plan their schedule.
       </p>
       <div class="testimonials__avatar">
@@ -58,6 +58,7 @@ export default {
 
       &__content {
         margin-bottom: 60px;
+        padding: 0 120px;
         font-weight: 400;
         font-size: 2.8rem;
         line-height: 40px;
@@ -95,6 +96,7 @@ export default {
         padding: 110px 60px;
 
         &__content {
+          padding: 0;
           font-size: 1.4rem;
           line-height: 17px;
           letter-spacing: 0.16907px;
