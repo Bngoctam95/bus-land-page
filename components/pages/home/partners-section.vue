@@ -152,8 +152,12 @@ export default {
   .wrapper {
     .partners {
 
-      &__list {
-        grid-template-columns: repeat(3, 1fr);
+      &__item {
+        img {
+          width: 180px;
+          padding: 0;
+          object-fit: cover;
+        }
       }
     }
   }
@@ -162,9 +166,27 @@ export default {
   .wrapper {
     .partners {
       padding: 60px 0 50px 0;
+      &__item {
+        img {
+          width: 120px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 620px) {
+  .wrapper {
+    .partners {
+      &__content {
+        padding: 0 30px;
+      }
       &__list {
-        grid-template-columns: repeat(1, 1fr);
-        padding: 0 70px;
+        grid-template-columns: repeat(2, 1fr);
+      }
+      &__item {
+        img {
+          width: 193px;
+        }
       }
     }
   }
@@ -172,13 +194,8 @@ export default {
 @media (max-width: 500px) {
   .wrapper {
     .partners {
-      &__content {
-        padding: 0 30px;
-      }
-      &__item {
-        img {
-          width: 193px;
-        }
+      &__list {
+        grid-template-columns: repeat(1, 1fr);
       }
     }
   }
