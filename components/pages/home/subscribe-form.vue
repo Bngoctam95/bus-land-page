@@ -26,10 +26,17 @@
         <h4>Subscribe to our Newsletter</h4>
         <p>Available exclusivery on Figmaland</p>
         <div class="subscribe__content__submit">
-          <input v-model="email" type="email" name="email" placeholder="Your Email">
-          <baseButton class="primary btn" @click="submitForm">
-            Subscribe
-          </baseButton>
+          <div class="input">
+            <input v-model="email" type="email" name="email" placeholder="Your Email">
+            <p id="invalid-email">
+              Invalid email
+            </p>
+          </div>
+          <div class="btn">
+            <baseButton class="primary btn__block" @click="submitForm">
+              Subscribe
+            </baseButton>
+          </div>
         </div>
       </div>
     </div>
@@ -52,10 +59,15 @@ export default {
   methods: {
     validateEmail () {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      const invalidEmailMessage = document.getElementById('invalid-email')
+      const emailInput = document.querySelector('div.input input[name="email"]')
       if (!emailRegex.test(this.email)) {
-        alert('Email không hợp lệ')
+        invalidEmailMessage.style.display = 'block'
+        emailInput.style.border = '1px solid red'
         return false
       }
+      invalidEmailMessage.style.display = 'none'
+      emailInput.style.border = '1px solid #E8E8E8'
       return true
     },
     submitForm () {
@@ -120,13 +132,25 @@ export default {
 
         &__submit {
           margin-top: 36px;
-          input {
-            margin-right: 12px;
-            background: #F4F4F4;
-            border: 1px solid #E8E8E8;
-            border-radius: 39px;
-            padding: 18px 39px;
-            font-family: 'Graphik-Light';
+          display: flex;
+          .input {
+            input {
+              margin-right: 12px;
+              background: #F4F4F4;
+              font-size: 1.6rem;
+              border: 1px solid #E8E8E8;
+              border-radius: 39px;
+              padding: 16px 39px;
+              font-family: 'Graphik-Light';
+            }
+
+            p {
+              display: none;
+              padding-left: 20px;
+              font-size: 1.5rem;
+              line-height: 15px;
+              color: red;
+            }
           }
         }
       }
@@ -150,9 +174,6 @@ export default {
         width: 40%;
           &__submit {
           margin-top: 20px;
-            input {
-            margin-bottom: 20px;
-            }
           }
       }
     }
@@ -163,6 +184,11 @@ export default {
     .subscribe {
       &__content {
         margin-top: 160px;
+
+        &__submit {
+          flex-direction: column;
+          gap: 20px
+        }
       }
     }
   }
@@ -183,10 +209,7 @@ export default {
         }
         &__submit {
           margin-top: 10px;
-            input {
-            margin-bottom: 10px;
-            }
-          }
+        }
       }
     }
   }
@@ -244,9 +267,16 @@ export default {
 
         &__submit {
           margin-top: 34px;
-          input, .btn {
+          .input {
+            input {
             display: block;
             width: 100%;
+          }
+          }
+          .btn {
+            &__block {
+              width: 100%;
+            }
           }
         }
       }
