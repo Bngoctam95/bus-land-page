@@ -135,8 +135,10 @@ export default {
         }
 
         img {
+          width: 193px;
+          height: 63px;
+          object-fit: contain;
           margin-bottom: 32px;
-          padding: 0 20px;
         }
       }
 
@@ -154,9 +156,8 @@ export default {
 
       &__item {
         img {
-          width: 180px;
-          padding: 0;
-          object-fit: cover;
+          width: 160px;
+          object-fit: contain;
         }
       }
     }
@@ -185,17 +186,9 @@ export default {
       }
       &__item {
         img {
-          width: 193px;
+          width: 103px;
+          margin-bottom: 22px;
         }
-      }
-    }
-  }
-}
-@media (max-width: 500px) {
-  .wrapper {
-    .partners {
-      &__list {
-        grid-template-columns: repeat(1, 1fr);
       }
     }
   }
