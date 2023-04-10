@@ -175,7 +175,7 @@ export default {
         justify-content: space-around;
         align-items: center;
 
-        &__free, &__business {
+        &__free, &__business, &__standard {
           width: 335px;
           height: 607px;
           padding: 40px;
@@ -256,77 +256,26 @@ export default {
         }
 
         &__standard {
-          width: 335px;
           height: 693px;
           padding: 83px 40px;
-          text-align: center;
           background-color: var(--primary-color);
-          border: 1px solid #DEDEDE;
-          box-shadow: 0px 13px 19px rgba(0, 0, 0, 0.07);
-          border-radius: 10px;
-          color: white;
 
-          .title {
-            font-family: 'Graphik-Medium';
-            font-weight: 700;
-            font-size: 2rem;
-            line-height: 28px;
-            letter-spacing: 0.1px;
-            text-transform: uppercase;
+          .title, .subtitle, .feature {
+            color: white;
           }
-
-          .subtitle {
-            font-weight: 400;
-            font-size: 1.6rem;
-            line-height: 23px;
-            letter-spacing: 0.1px;
-          }
-
           .price {
-            padding: 30px 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-
             &__number {
-              font-family: 'Graphik-Medium';
-              font-weight: 700;
-              font-size: 7.4rem;
-              line-height: 84px;
-              letter-spacing: 0.2px;
+              color: white;
             }
 
             &__mth {
-              text-align: left;
-              padding-top: 10px;
               span {
-                font-family: 'Graphik-Medium';
-                font-weight: 700;
-                font-size: 2rem;
-                line-height: 28px;
-                letter-spacing: 0.1px;
+                color: white;
               }
               p {
-                font-family: 'Graphik-Light';
-                font-weight: 400;
-                font-size: 1.6rem;
-                line-height: 23px;
-                letter-spacing: 0.1px;
+                color: white;
               }
             }
-          }
-
-          .feature {
-            padding: 10px;
-            font-weight: 400;
-            font-size: 1.5rem;
-            line-height: 28px;
-            letter-spacing: 0.2px;
-          }
-
-          .btn {
-            margin-top: 10px;
           }
         }
       }
