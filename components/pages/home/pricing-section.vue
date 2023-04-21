@@ -287,15 +287,37 @@ export default {
     .wrapper {
       .pricing {
         &__order {
-          flex-direction: column;
-          gap: 50px
+          &__free, &__business, &__standard {
+            width: 255px;
+            padding: 40px 0;
+          }
         }
       }
     }
   }
+
+  @media (max-width: 810px) {
+    .wrapper {
+      .pricing {
+        &__order {
+          &__free, &__business, &__standard {
+            width: 200px;
+          }
+        }
+      }
+    }
+  }
+
   @media (max-width: 650px) {
     .wrapper {
       .pricing {
+        &__order {
+          &__free, &__business, &__standard {
+            width: 335px;
+          }
+          flex-direction: column;
+          gap: 50px
+        }
         &__content {
           p {
             span {
