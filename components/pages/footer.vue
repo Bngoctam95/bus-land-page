@@ -212,7 +212,7 @@ export default {
       }
     }
   }
-  @media (max-width: 850px) {
+  @media (max-width: 450px) {
     .wrapper {
       .footer {
         flex-direction: column;
