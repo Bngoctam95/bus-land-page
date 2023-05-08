@@ -97,17 +97,21 @@ export default {
 
         &__content {
           padding: 0;
-          font-size: 1.4rem;
-          line-height: 17px;
-          letter-spacing: 0.16907px;
+          font-size: 2.2rem;
+          font-weight: bolder;
+          line-height: 30px;
         }
       }
     }
   }
-  @media (max-width: 400px) {
+  @media (max-width: 500px) {
     .wrapper {
       .testimonials {
-        padding: 110px 10px;
+        padding: 110px 40px;
+
+        &__content {
+          font-size: 1.8rem;
+        }
       }
     }
   }
