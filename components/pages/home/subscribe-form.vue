@@ -27,8 +27,8 @@
         <p>Available exclusivery on Figmaland</p>
         <div class="subscribe__content__submit">
           <div class="input">
-            <input v-model="email" type="email" name="email" placeholder="Your Email">
-            <p id="invalid-email">
+            <input v-model="email" type="email" name="email" :class="{ 'border-red': isInvalid }" placeholder="Your Email">
+            <p v-show="isInvalid" id="invalid-email">
               Invalid email
             </p>
           </div>
@@ -53,22 +53,15 @@ export default {
   data () {
     return {
       email: '',
-      registeredEmails: []
+      registeredEmails: [],
+      isInvalid: false
     }
   },
   methods: {
     validateEmail () {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-      const invalidEmailMessage = document.getElementById('invalid-email')
-      const emailInput = document.querySelector('div.input input[name="email"]')
-      if (!emailRegex.test(this.email)) {
-        invalidEmailMessage.style.display = 'block'
-        emailInput.style.border = '1px solid red'
-        return false
-      }
-      invalidEmailMessage.style.display = 'none'
-      emailInput.style.border = '1px solid #E8E8E8'
-      return true
+      this.isInvalid = !emailRegex.test(this.email)
+      return this.isInvalid
     },
     submitForm () {
       if (!this.validateEmail()) {
@@ -144,8 +137,11 @@ export default {
               font-family: 'Graphik-Light';
             }
 
+            .border-red {
+              border: 1px solid red;
+            }
+
             p {
-              display: none;
               padding-left: 20px;
               font-size: 1.5rem;
               line-height: 15px;
@@ -271,7 +267,10 @@ export default {
             input {
             display: block;
             width: 100%;
-          }
+            }
+            p {
+              text-align: left;
+            }
           }
           .btn {
             &__block {
