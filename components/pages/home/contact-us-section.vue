@@ -224,10 +224,10 @@ export default {
           margin-top: 30px;
 
           .infor {
-            display: flex;
+            display: grid;
+            grid-template-columns: 30% 30% 30%;
+            gap: 5%;
             text-align: center;
-            justify-content: space-between;
-
             &__item {
               img {
                 margin-bottom: 10px;
@@ -259,7 +259,29 @@ export default {
   }
 
   /* Responsive */
-  @media (max-width: 1250px) {
+  @media (max-width: 1050px) {
+    .wrapper {
+      .contact {
+        padding: 200px 20px 100px 20px;
+        &__content {
+          &__form {
+            width: 400px;
+          }
+          &__map {
+            .infor {
+               grid-template-columns: 35% 20% 35%;
+              &__item {
+                p {
+                  font-size: 1.2rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 1000px) {
     .wrapper {
       .contact {
 
@@ -290,7 +312,7 @@ export default {
     }
   }
 
-  @media (max-width: 1050px) {
+  @media (max-width: 800px) {
     .wrapper {
       .contact {
 
@@ -341,6 +363,12 @@ export default {
           &__form {
             width: 378px;
             max-width: 100%;
+          }
+          &__map {
+            .infor {
+              display: flex;
+              flex-direction: column;
+            }
           }
         }
       }
