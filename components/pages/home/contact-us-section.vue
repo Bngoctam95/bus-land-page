@@ -15,12 +15,21 @@
           </div>
           <div class="input-container">
             <input id="name" v-model="name" class="input" type="text" placeholder="Your Name">
+            <p v-show="isInvalidName">
+              Enter Name from 6 characters or more
+            </p>
           </div>
           <div class="input-container">
             <input id="mail" v-model="email" class="input" type="mail" placeholder="Your Email">
+            <p v-show="isInvalidEmail">
+              Invalid email
+            </p>
           </div>
           <div class="textarea-container">
             <textarea id="message" v-model="message" class="textarea" placeholder="Your Message" />
+            <p v-show="isSuccess">
+              Success!
+            </p>
           </div>
           <baseButton class="primary" @click="submitForm">
             Send
@@ -82,44 +91,25 @@ export default {
       email: '',
       name: '',
       message: '',
-      user: []
+      user: [],
+      isInvalidName: false,
+      isInvalidEmail: false,
+      isSuccess: false
     }
   },
 
   methods: {
     validateName () {
-      if (this.name.length < 6) {
-        alert('Nhập Name từ 6 ký tự trở lên')
-        return false
-      }
-      return true
+      this.isInvalidName = this.name.length < 6
+      return this.isInvalidName
     },
     validateEmail () {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-      if (!emailRegex.test(this.email)) {
-        alert('Email không hợp lệ')
-        return false
-      }
-      return true
+      this.isInvalidEmail = !emailRegex.test(this.email)
+      return this.isInvalidEmail
     },
     submitForm () {
-      if (!this.validateName()) {
-        return true
-      }
-      if (!this.validateEmail()) {
-        return true
-      }
-      const userObj = {
-        name: this.name,
-        email: this.email,
-        message: this.message
-      }
-      this.user.push(userObj)
-
-      this.name = ''
-      this.email = ''
-      this.message = ''
-      alert('Đăng ký thành công!')
+      return (this.isSuccess = !this.validateName() && !this.validateEmail())
     }
   }
 }
@@ -185,12 +175,28 @@ export default {
             height: 50px;
             position: relative;
             width: 100%;
+
+            p {
+              padding-left: 20px;
+              padding-top: 10px;
+              font-family: 'Graphik-Light';
+              font-size: 1.6rem;
+              color: red;
+            }
           }
 
           .textarea-container {
             width: 353px;
             max-width: 100%;
             height: 193px;
+
+            p {
+              padding-left: 20px;
+              padding-top: 10px;
+              font-family: 'Graphik-Light';
+              font-size: 1.6rem;
+              color: red;
+            }
           }
 
           .input, .textarea {
@@ -266,6 +272,13 @@ export default {
         &__content {
           &__form {
             width: 400px;
+
+            .input-container, .textarea-container {
+              p {
+                font-size: 1.3rem;
+              }
+            }
+
           }
           &__map {
             .infor {
